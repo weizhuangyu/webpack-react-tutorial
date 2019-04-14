@@ -1,0 +1,15 @@
+parser: babel-eslint
+extends:
+  - standard
+  - plugin:prettier/recommended
+  - plugin:react/recommended
+rules:
+  react/prop-types: 2
+  camelcase: 0
+  no-extra-boolean-cast: 0
+  no-unused-expressions: 2
+  no-var: 2
+  react-hooks/rules-of-hooks: 2
+  react-hooks/exhaustive-deps: 1
+plugins:
+  - react-hooks
