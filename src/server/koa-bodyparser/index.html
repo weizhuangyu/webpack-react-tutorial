@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>example</title>
+  </head>
+  <body>
+    <div>
+      <p>form post demo</p>
+      <div>
+        <input type="text" id="name" />
+        <input type="number" id="age" />
+        <button id="submit">Submit</button>
+      </div>
+    </div>
+
+    <script>
+      var domName = document.querySelector('#name')
+      var domAge = document.querySelector('#age')
+      var button = document.querySelector('#submit')
+      button.addEventListener('click', () => {
+        var data = {
+          name: domName.value,
+          age: domAge.value
+        }
+        fetch('http://localhost:3000/post', {
+          method: 'POST', // or 'PUT'
+          body: JSON.stringify(data),
+          headers: new Headers({
+            // 'Content-Type': 'application/json'
+          })
+        })
+          .then(res => {
+            return res.json()
+          })
+          .then(response => console.log('Success:', response))
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+      main#background {
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        background-size: cover;
+        animation: 1s 0s ease forwards fadein;
+      }
+      @keyframes fadein {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main id="background"></main>
+    <script>
+      addFadeInBackground(
+        'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554032165767&di=3c5c05e1b78a84fac35769b0973f05f0&imgtype=0&src=http%3A%2F%2Fi4.qhimg.com%2Ft0193eb379e4d9c8659.jpg',
+        'background'
+      )
+
+      function addFadeInBackground(url, domId) {
+        var background = new Image()
+        background.src = url
+        background.onload = function() {
+          console.log('Background load complete!')
+          var loadbackground = document.getElementById(domId)
+          loadbackground.style.backgroundImage = 'url(' + background.src + ')'
+        }
+      }
+    </script>
+  </body>
+</html>
