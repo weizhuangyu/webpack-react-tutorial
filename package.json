@@ -9,6 +9,18 @@
     "build": "webpack --mode production",
     "lint": "eslint --ext .js,.jsx src/"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,css}": [
+      "prettier --write",
+      "eslint",
+      "git add"
+    ]
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
