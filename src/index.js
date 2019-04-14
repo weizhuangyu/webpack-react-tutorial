@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import ReactDOM from 'react-dom'
 import Header from './js/components/container/Header.jsx'
 import Content from './js/components/container/Content.js'
@@ -11,7 +11,7 @@ function createStore(reducer) {
   const listeners = []
   const subscribe = listener => listeners.push(listener)
   const getState = () => state
-  const dispatch = action => {
+  let dispatch = action => {
     state = reducer(state, action)
     listeners.forEach(listener => listener())
   }
